@@ -12,8 +12,41 @@
 <body>
     <header class="container">
         <h1 class="text-primary text-center">Contact list</h1>
-    </header>
 
+    </header>
+    <div class="container">
+        <div class="row">
+            {% for contact in contacts %}
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center ">{{ contact.name }} {{contact.lastname}}</h5>
+                        <p class="text-center text-uppercase font-weight-light font-italic">
+                            {{contact.description}}</p>
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cell</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ contact.mobile }}</td>
+                                    <td>{{ contact.work }}</td>
+                                    <td>{{ contact.email }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn btn-primary">More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 
