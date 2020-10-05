@@ -1,0 +1,23 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+<div class="row">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center ">{{ contact.name }} {{contact.lastname}}</h5>
+            <p class="text-center text-uppercase font-weight-light font-italic">
+                {{contact.description}}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ contact.dob }}</li>
+                <li class="list-group-item">{{ contact.mobile }}</li>
+                <li class="list-group-item">{{ contact.work }}</li>
+                <li class="list-group-item">{{ contact.email }}</li>
+                <li class="list-group-item">{{ contact.socials }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

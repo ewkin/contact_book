@@ -1,67 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Contact list</title>
-</head>
-
-<body>
-    <header class="container">
-        <h1 class="text-primary text-center">Contact list</h1>
-
-    </header>
-    <div class="container">
-        <div class="row">
-            {% for contact in contacts %}
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center ">{{ contact.name }} {{contact.lastname}}</h5>
-                        <p class="text-center text-uppercase font-weight-light font-italic">
-                            {{contact.description}}</p>
-                        <table class="table ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Cell</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Email</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ contact.mobile }}</td>
-                                    <td>{{ contact.work }}</td>
-                                    <td>{{ contact.email }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <a href="#" class="btn btn-primary">More</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+{% extends 'contacts/base.html' %}
+{% block content %}
 
 
+<table class="table ">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Cell</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.lastname }}</td>
+            <td>{{ contact.description }}</td>
+            <td>{{ contact.mobile }}</td>
+            <td>{{ contact.work }}</td>
+            <td>{{ contact.email }}</td>
+            <td> <a href="{% url 'contact_detail' pk=contact.pk %}" class="btn btn-primary">More</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 
-
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+{% endblock %}
