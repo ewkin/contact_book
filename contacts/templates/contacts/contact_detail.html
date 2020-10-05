@@ -15,6 +15,7 @@
                 <li class="list-group-item">{{ contact.email }}</li>
                 <li class="list-group-item">{{ contact.socials }}</li>
             </ul>
+            <a class="btn btn-success" href="{% url 'contact_edit' pk=contact.pk %}">Change</a>
         </div>
     </div>
 </div>
