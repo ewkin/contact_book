@@ -1,7 +1,7 @@
 {% extends 'contacts/base.html' %}
 {% block content %}
 
-
+{% if request.user.is_authenticated %}
 <table class="table ">
     <thead>
         <tr>
@@ -30,6 +30,17 @@
         {% endfor %}
     </tbody>
 </table>
+ {% else %}
+ <h1 class="text-primary mt-4 text-center">The CRM platform that is simple to set up and easy to use</h1>
+ <p class="mt-5 text-center">Manage everything in one place. contact book lets you handle
+contacts, and much more!</p>
+        <a class="btn btn-danger text-capitalize" href="/login" style = "position: relative;
+left: 50%;
+transform: translate(-50%, 0);">Join us today!</a></li>
+
+
+         {% endif %}
+
 
 
 {% endblock %}
